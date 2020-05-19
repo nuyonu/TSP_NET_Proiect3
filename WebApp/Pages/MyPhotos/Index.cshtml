@@ -1,0 +1,119 @@
+﻿@page
+@model WebApp.Pages.MyPhotos.IndexModel
+@{
+    ViewData["Title"] = "All";
+}
+
+<form class="d-flex flex-column justify-content-center align-items-center m-2">
+    <div class="d-flex flex-row justify-content-center align-items-center mb-1">
+        <input class="mx-2 p-1" type="text" asp-for="ToSearch" placeholder="Search..." />
+        <button class="btn btn-primary px-2" type="submit">Search</button>
+        <button class="btn btn-primary" style="height: 38px;" type="button" onclick="showHideElement('advanced-search')"><i class="fa fa-gear"></i></button>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-center" id="advanced-search" style="display: none !important">
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byDate" asp-for="ByDate">
+            <label class="custom-control-label" for="byDate">By date</label>
+        </div>
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byEvent" asp-for="ByEvent">
+            <label class="custom-control-label" for="byEvent">By event</label>
+        </div>
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byPeople" asp-for="ByPeople">
+            <label class="custom-control-label" for="byPeople">By people</label>
+        </div>
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byLocation" asp-for="ByLocation">
+            <label class="custom-control-label" for="byLocation">By location</label>
+        </div>
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byTags" asp-for="ByTags">
+            <label class="custom-control-label" for="byTags">By tags</label>
+        </div>
+        <div class="custom-control custom-checkbox mr-1">
+            <input type="checkbox" class="custom-control-input" id="byDescription" asp-for="ByDescription">
+            <label class="custom-control-label" for="byDescription">By description</label>
+        </div>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+        Found: @Html.DisplayFor(model => model.Media.Count) media elements
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].People)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Tags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media[0].Type)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Media)
+        {
+            <tr style="font-size:small">
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.People)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Tags)
+                    </div>
+                </td>
+                <td>
+                    <div class="ellipsis">
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </div>
+                </td>
+                <td>
+                    <a asp-page="/MyPhotos/View" asp-route-id="@item.Id">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,91 @@
+﻿@page
+@model WebApp.Pages.MyPhotos.ViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<div class="d-flex flex-row">
+    <div class="d-flex w-50 justify-content-center">
+        <img class="w-75" src="@await Model.GetBase64(Model.Media.Path)" />
+    </div>
+    <div class="d-flex flex-column w-50 p-5">
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Id)
+        </div>
+        <div class="border-bottom">
+            @Html.DisplayFor(model => model.Media.Id)
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Path)
+        </div>
+        <div class="border-bottom">
+            @Html.DisplayFor(model => model.Media.Path)
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Type)
+        </div>
+        <div class="border-bottom">
+            @Html.DisplayFor(model => model.Media.Type)
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Format)
+        </div>
+        <div class="border-bottom">
+            @Html.DisplayFor(model => model.Media.Format)
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.CreatedDate)
+        </div>
+        <div class="border-bottom">
+            @Html.DisplayFor(model => model.Media.CreatedDate)
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Description)
+        </div>
+        <div class="border-bottom">
+            @if (Model.Media.Description != "")
+                @Html.DisplayFor(model => model.Media.Description)
+                else
+                {
+                    <span>No description</span>
+                }
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Event)
+        </div>
+        <div class="border-bottom">
+            @if (Model.Media.Event != "")
+                @Html.DisplayFor(model => model.Media.Event)
+                else
+                {
+                    <span>No event</span>
+                }
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.People)
+        </div>
+        <div class="border-bottom">
+            @if (Model.Media.People != "")
+                @Html.DisplayFor(model => model.Media.People)
+                else
+                {
+                    <span>No people</span>
+                }
+        </div>
+        <div class="font-size-20">
+            @Html.DisplayNameFor(model => model.Media.Tags)
+        </div>
+        <div class="border-bottom">
+            @if (Model.Media.Tags != "")
+                @Html.DisplayFor(model => model.Media.Tags)
+                else
+                {
+                    <span>No tags</span>
+                }
+        </div>
+        <form class="d-flex flex-row justify-content-center align-items-center mt-2" method="post">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+

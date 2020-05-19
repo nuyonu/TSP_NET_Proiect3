@@ -1,0 +1,76 @@
+﻿html, body {
+    background-color: #004d40;
+    /*background-image: url(https://media.tenor.com/images/ccf3069a295be08b371a9097841e4ec9/tenor.gif);*/
+    /*background-image: url(https://media.giphy.com/media/Qc8GJi3L3Jqko/source.gif);
+    background-image: url(https://media.giphy.com/media/VjLMxGkgbFFsI/source.gif);*/
+    color: white;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #00251a;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.fa {
+    font-size: 30px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.logo {
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    max-width: 100px;
+    overflow: hidden;
+    display: inline-block;
+    width: 180px;
+    white-space: nowrap;
+}
+
+.table {
+    color: white;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
